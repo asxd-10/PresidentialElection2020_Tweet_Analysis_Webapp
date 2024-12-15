@@ -55,6 +55,7 @@ function TopUsers() {
             });
     }, [limit, order]);
 
+    // POST API request
     useEffect(() => {
         fetch(`${config.api_url}/user-engagement/popular-tweets`, {
             method: 'POST',

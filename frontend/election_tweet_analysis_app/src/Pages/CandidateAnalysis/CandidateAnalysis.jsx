@@ -59,6 +59,7 @@ function CandidateAnalysis() {
 
     const paginationModel = { page: 0, pageSize: 10 };
 
+    // create chart labels by leaving out the time portion of tweet_date
     let dailyTrendsChartData = {
         labels: dailyTrendsData.map((row) => row.tweet_date.substring(0, row.tweet_date.indexOf(" 00:00:00"))),
         datasets: [

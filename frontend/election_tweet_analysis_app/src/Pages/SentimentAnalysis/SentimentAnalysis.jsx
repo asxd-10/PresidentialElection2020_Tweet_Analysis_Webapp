@@ -106,23 +106,25 @@ function SentimentAnalysis() {
         },
         scales: {
             x: {
-                stacked: true
+                stacked: true // stacked bar chart
             },
             y: {
-                stacked: true,
+                stacked: true, // stacked bar chart
                 beginAtZero: true
             }
         }
     };
 
     useEffect(() => {
+        // sentiment analysis of tweets made about Trump
         fetch(`${config.api_url}/engagement-trends/weekly-sentiment?candidate=Trump`, { mode: 'cors' })
             .then((response) => response.json())
             .then((data) => setTrumpData(data))
             .catch((err) => {
                 console.log(err.message);
             });
-
+        
+        // sentiment analysis of tweets made about Biden
         fetch(`${config.api_url}/engagement-trends/weekly-sentiment?candidate=Biden`, { mode: 'cors' })
             .then((response) => response.json())
             .then((data) => setBidenData(data))

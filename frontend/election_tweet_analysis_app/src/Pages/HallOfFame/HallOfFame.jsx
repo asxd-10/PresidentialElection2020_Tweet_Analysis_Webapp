@@ -88,6 +88,7 @@ function HallOfFame() {
         ]
     };
 
+    // create chart labels by appending city and state
     let locationInsightsChartData = {
         labels: locationInsights.map((row) => row.city + ", " + row.state),
         datasets: [

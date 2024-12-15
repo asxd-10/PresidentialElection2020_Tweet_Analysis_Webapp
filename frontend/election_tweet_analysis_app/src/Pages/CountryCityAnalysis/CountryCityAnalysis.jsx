@@ -77,6 +77,7 @@ function CountryCityAnalysis() {
             });
     }, []);
 
+    // check all country names
     const finalGeoChartData = [
         ["Country", "Number of Tweets"],
         ...geoChartData.map((row) => [handleCountryNames(row.country), row.tweet_count])
@@ -123,6 +124,7 @@ function CountryCityAnalysis() {
         },
     };
 
+    // function to ensure country names abide by google charts naming conventions
     function handleCountryNames(country) {
         if (country === "United States of America") {
             return "United States";

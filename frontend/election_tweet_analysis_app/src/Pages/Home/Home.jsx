@@ -110,6 +110,7 @@ function Home() {
             })
     }, []);
 
+    // make API call when the date range is changed
     useEffect(() => {
         fetch(`${config.api_url}/homepage/overview?start_date=${dayjs(startDate).format('YYYY-MM-DD')}&end_date=${dayjs(endDate).format('YYYY-MM-DD')}`, { mode: 'cors' })
             .then((response) => response.json())

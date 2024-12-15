@@ -102,9 +102,11 @@ function Optimization() {
 
     const paginationModel = { page: 0, pageSize: 5 };
 
+    // filter out candidate data based on the most_tweeted_about column
     let trumpData = userCandidateData.filter((row) => row.most_tweeted_about === "Trump");
     let bidenData = userCandidateData.filter((row) => row.most_tweeted_about === "Biden");
 
+    // aggregate data for both candidates for the pie chart
     const aggregatedData = {
         Trump: {
             totalLikes: trumpData.reduce((sum, row) => sum + row.total_likes, 0),
@@ -178,6 +180,7 @@ function Optimization() {
             });
     }, [limit, highVolumeSortMetric, highVolumeOrder]);
 
+    // POST-type API request
     useEffect(() => {
         fetch(`${config.api_url}/optimization/weekly-engagement-with-events`, {
             method: 'POST',
